@@ -1,0 +1,76 @@
+body {
+    font-family: Arial, sans-serif; /* Используем стандартный шрифт Arial или альтернативу sans-serif */
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column; /* Изменяем направление основной оси на вертикальное */
+    align-items: center; /* Центрируем по горизонтали */
+    background-color: #f0f0f0; /* Цвет фона страницы */
+
+}
+
+h1 {
+    text-align: center;
+}
+
+#noteList {
+    width: 300px;
+    max-height: 300px; /* Добавляем вертикальную прокрутку, если список больше 300px */
+    overflow-y: auto;
+    padding: 10px;
+    background-color: #ffffff; /* Цвет фона элементов списка */
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Тень */
+}
+
+#noteList div {
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    transition: background-color 0.3s ease; /* Плавное изменение цвета фона при наведении */
+}
+
+#noteList div:hover {
+    background-color: #f0f0f0; /* Новый цвет фона при наведении */
+}
+
+button {
+    margin-top: 10px;
+    display: block;
+    width: 100px;
+    padding: 8px 0;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: #007bff; /* Цвет кнопок */
+    color: #fff; /* Цвет текста на кнопках */
+    transition: background-color 0.3s ease; /* Плавное изменение цвета фона кнопок при наведении */
+}
+
+button:hover {
+    background-color: #0056b3; /* Новый цвет фона при наведении на кнопку */
+}
+
+footer {
+    margin-top: 20px;
+    text-align: center;
+}
+
+@media (max-width: 600px) {
+    button {
+        margin-top: 0; /* Кнопки при сужении окна исчезают под поле ввода */
+    }
+}
+
+#noItemsMessage {
+  display: none; /* Изначально скрываем сообщение */
+  text-align: center;
+  margin-top: 50px; /* Маргин сверху для выравнивания по центру */
+  color: #555; /* Цвет текста */
+  font-size: 18px; /* Размер текста */
+}
+
+#noteList:empty + #noItemsMessage {
+  display: block; /* Показываем сообщение, если список пустой */
+}
+
