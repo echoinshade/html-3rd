@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>2. Функции JavaScript</title>
+	
+	   <script>
+        function findFirstNonRepeating() {
+            const inputString = document.getElementById("inputString").value;
+            let charCount = {};
+            for (let char of inputString) {
+                charCount[char] = (charCount[char] || 0) + 1;
+            }
+            for (let char of inputString) {
+                if (charCount[char] === 1) {
+                    document.getElementById("result1").innerText = "Первый неповторяющийся символ: " + char;
+                    return;
+                }
+            }
+            document.getElementById("result1").innerText = "Нет неповторяющегося символа.";
+        }
+
+        function generateRandomString() {
+            const length = parseInt(document.getElementById("stringLength").value);
+            const characters = 'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789';
+            let randomString = '';
+            for (let i = 0; i < length; i++) {
+                const randomIndex = Math.floor(Math.random() * characters.length);
+                randomString += characters[randomIndex];
+            }
+            document.getElementById("result2").innerText = "Случайная строка: " + randomString;
+        }
+
+        function returnUniqueCharacters() {
+            const inputString = document.getElementById("inputString2").value;
+            let uniqueChars = '';
+            for (let char of inputString) {
+                if (inputString.indexOf(char) === inputString.lastIndexOf(char)) {
+                    uniqueChars += char;
+                }
+            }
+            document.getElementById("result3").innerText = "Уникальные символы: " + uniqueChars;
+        }
+    </script>
+</head>
+<body>
+    <h2>Задача 1: Найти первый неповторяющийся символ</h2>
+    <input type="text" id="inputString" placeholder="Введите строку">
+    <button onclick="findFirstNonRepeating()">Найти</button>
+    <p id="result1"></p>
+
+    <h2>Задача 2: Сгенерировать случайную строку</h2>
+    <input type="number" id="stringLength" placeholder="Введите длину">
+    <button onclick="generateRandomString()">Генерировать</button>
+    <p id="result2"></p>
+
+    <h2>Задача 3: Вернуть уникальные символы</h2>
+    <input type="text" id="inputString2" placeholder="Введите строку">
+    <button onclick="returnUniqueCharacters()">Вернуть</button>
+    <p id="result3"></p>
+
+ 
+</body>
+</html>

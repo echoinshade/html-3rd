@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>1. Функции JavaScript</title>
+<script>
+  function reverseNumber() {
+    const input = document.getElementById('reverseInput').value;
+    const reversed = parseInt(input.toString().split('').reverse().join(''));
+    document.getElementById('reverseOutput').textContent = reversed;
+  }
+
+  function removeDuplicates() {
+    const input = document.getElementById('uniqueInput').value;
+    const unique = Array.from(new Set(input.toString().split(''))).join('');
+    document.getElementById('uniqueOutput').textContent = unique;
+  }
+
+  function countDigit() {
+    const number = document.getElementById('countInput').value;
+    const digit = document.getElementById('countDigit').value;
+    const count = number.toString().split('').reduce((acc, curr) => {
+      return curr === digit ? acc + 1 : acc;
+    }, 0);
+    document.getElementById('countOutput').textContent = count;
+  }
+
+  function longestSequence() {
+    const input = document.getElementById('binaryInput').value;
+    const binary = input.toString(2);
+    const sequences = binary.match(/0+|1+/g);
+    if (!sequences) {
+      document.getElementById('binaryOutput').textContent = 'Нет последовательностей';
+      return;
+    }
+    const longest = sequences.reduce((max, sequence) => {
+      return Math.max(max, sequence.length);
+    }, 0);
+    document.getElementById('binaryOutput').textContent = longest;
+  }
+</script>
+</head>
+<body>
+  <h2>Обратный порядок</h2>
+  <input type="number" id="reverseInput" placeholder="Введите число для обратного порядка">
+  <button onclick="reverseNumber()">Получить обратный порядок</button>
+  <p id="reverseOutput"></p>
+
+  <h2>Без повторяющихся цифр</h2>
+  <input type="number" id="uniqueInput" placeholder="Введите число">
+  <button onclick="removeDuplicates()">Удалить повторяющиеся цифры</button>
+  <p id="uniqueOutput"></p>
+
+  <h2>Подсчет цифры</h2>
+  <input type="number" id="countInput" placeholder="Введите число">
+  <input type="number" id="countDigit" placeholder="Введите одну цифру">
+  <button onclick="countDigit()">Подсчитать</button>
+  <p id="countOutput"></p>
+
+  <h2>Самая длинная последовательность нулей/единиц в двоичной записи данного числа</h2>
+  <input type="number" id="binaryInput" placeholder="Введите двоичное число">
+  <button onclick="longestSequence()">Получить последовательность</button>
+  <p id="binaryOutput"></p>
+
+
+</body>
+</html>
