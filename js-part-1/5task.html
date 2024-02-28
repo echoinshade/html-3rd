@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Проверка кода JavaScript</title>
+</head>
+<body>
+
+<script>
+let number;
+
+do {
+    number = prompt("Введите число больше 100:", "");
+} while (number !== null && Number(number) <= 100);
+
+if (number !== null) {
+    alert("Вы ввели число больше 100: " + number);
+} else {
+    alert("Вы отменили ввод.");
+}
+
+</script>
+
+</body>
+</html>
